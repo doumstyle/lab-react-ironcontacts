@@ -5,10 +5,17 @@ import allContacts from './contacts.json';
 
 function App() {
 
-  const [contacts] = useState(allContacts.slice(0, 6));
+  const [contacts, setContacts] = useState(allContacts.slice(0, 6));
+  const restOfContacts = allContacts.slice(7, -1);
+
+  const addRandomContact = () => {
+    let randomContact = restOfContacts[Math.floor(Math.random()*restOfContacts.length)];
+    setContacts([...contacts, randomContact])
+  }
 
   return (
     <div className="App">
+      <button onClick={addRandomContact} className='addRandContact'>Add Random Contact</button>
       <table>
         <thead>
           <tr>
@@ -21,7 +28,7 @@ function App() {
         </thead>
         <tbody>
           {contacts.map(contact => (
-            <tr key={contact.id}>
+            <tr key={contact.id} id="contactsList">
               <td><img src={contact.pictureUrl} alt={contact.name} /></td>
               <td>{contact.name}</td>
               <td>{contact.popularity}</td>

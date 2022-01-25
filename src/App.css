@@ -4,6 +4,12 @@
   margin: 2rem;
 }
 
+.addRandContact {
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 1.3em;
+}
+
 table, tr, td, thead, tbody {
   border: 1px solid;
   border-collapse: collapse;
